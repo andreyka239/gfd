@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JasonBot</title>
+</head>
+<body>
+<div>
+    <div>
+        <img id="user-avatar" src="" alt="User Avatar">
+    </div>
+</div>
+<script>
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Get the avatar URL from the URL parameters
+    var avatarUrl = getUrlParameter('avatar_url');
+    if (avatarUrl) {
+        document.getElementById('user-avatar').src = avatarUrl;
+    }
+</script>
+</body>
+</html>
